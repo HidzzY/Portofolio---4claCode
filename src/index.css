@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #0a0a12;
+    --card-bg: rgba(18, 18, 28, 0.85);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --accent: #f59e0b;
+    --accent-glow: rgba(245, 158, 11, 0.25);
+  }
+
+  html.light {
+    --bg-main: #f8f9fc;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --accent: #d97706;
+    --accent-glow: rgba(217, 119, 6, 0.15);
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Big Shoulders Display', sans-serif;
+}
+
+.font-sans {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Ambient Background & Grid */
+.ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+}
+
+html.light .ambient-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.55;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.orb-1 {
+  width: 450px;
+  height: 450px;
+  top: 5%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.16) 0%, rgba(217, 119, 6, 0.04) 70%, transparent 100%);
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  top: 15%;
+  right: 15%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.14) 0%, rgba(139, 92, 246, 0.03) 70%, transparent 100%);
+}
+
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  bottom: 20%;
+  left: 35%;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
+}
+
+/* Frame scanline animation */
+@keyframes scanline {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-scanline {
+  animation: scanline 3.5s ease-in-out infinite;
+}
+
+/* Equalizer Bars */
+@keyframes eq-1 {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+@keyframes eq-2 {
+  0%, 100% { height: 14px; }
+  50% { height: 6px; }
+}
+@keyframes eq-3 {
+  0%, 100% { height: 8px; }
+  50% { height: 18px; }
+}
+@keyframes eq-4 {
+  0%, 100% { height: 16px; }
+  50% { height: 4px; }
+}
+
+.eq-bar-1 { animation: eq-1 0.8s ease-in-out infinite; }
+.eq-bar-2 { animation: eq-2 0.7s ease-in-out infinite 0.1s; }
+.eq-bar-3 { animation: eq-3 0.9s ease-in-out infinite 0.2s; }
+.eq-bar-4 { animation: eq-4 0.75s ease-in-out infinite 0.3s; }
+
+/* Spinning vinyl disc */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* Floating animation */
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-subtle-float {
+  animation: subtle-float 4s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
