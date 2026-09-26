@@ -1,6 +1,8 @@
 {
-  "name": "OwensDev Portfolio",
-  "description": "Portfolio website 4lcaDev berisi project web, automation, tools seperti 4lcaCDN dan 4lca file.",
+  "name": "Alca Code Portfolio",
+  "description": "Portfolio website Alca Code berisi project web, automation, tools seperti 4lcaCDN dan 4lca file.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
